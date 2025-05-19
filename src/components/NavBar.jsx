@@ -1,16 +1,18 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import CartWidget from './CartWidget';
 
-const NavBar = () => {
+const NavBar = ({ cartCount }) => {
   return (
-    <nav style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '10px', background: '#ccc' }}>
+    <nav className="navbar">
       <h1>Mi Tienda</h1>
-      <ul style={{ display: 'flex', listStyleType: 'none', gap: '10px' }}>
-        <li><a href="#home">Inicio</a></li>
-        <li><a href="#products">Productos</a></li>
-        <li><a href="#contact">Contacto</a></li>
+      <ul className="nav-links">
+        <li><Link to="/">Inicio</Link></li>
+        <li><Link to="/category/electronics">Electrónica</Link></li>
+        <li><Link to="/category/fashion">Moda</Link></li>
+        <li><Link to="/contact">Contacto</Link></li>
       </ul>
-      <CartWidget />
+      <CartWidget count={cartCount} />
     </nav>
   );
 };
