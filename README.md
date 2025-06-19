@@ -12,7 +12,6 @@ Este proyecto es una Single Page Application (SPA) desarrollada con **React**, q
 - 💡 Context API
 - 💅 Bootstrap (estilado)
 - 💾 LocalStorage / Firestore
-- 🎬 Framer Motion (transiciones)
 
 ~~~
 
@@ -69,8 +68,8 @@ src/
 
 1. Cloná el repo:
    ```bash
-   git clone https://github.com/tu-usuario/tu-repo.git
-   cd tu-repo
+   git clone https://github.com/dshat1/coder-reactjs.git
+   cd coder-reactjs
 
     Instalá dependencias:
 
@@ -90,4 +89,4 @@ Iniciá el proyecto:
 
 Este proyecto fue deployado en Vercel.
 Podés acceder a la app en:
-📎 https://tureactshop.vercel.app
+📎 https://coder-reactjs-pe73.vercel.app/
