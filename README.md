@@ -90,4 +90,4 @@ Iniciá el proyecto:
 
 Este proyecto fue deployado en Vercel.
 Podés acceder a la app en:
-📎 https://tureactshop.vercel.app
+📎 
