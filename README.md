@@ -14,7 +14,7 @@ Este proyecto es una Single Page Application (SPA) desarrollada con **React**, q
 - 💾 LocalStorage / Firestore
 - 🎬 Framer Motion (transiciones)
 
----
+~~~
 
 ## 📁 Estructura general
 
@@ -42,7 +42,7 @@ src/
 └── utils/
 
 
----
+~~~
 
 ## 🔧 Funcionalidades
 
