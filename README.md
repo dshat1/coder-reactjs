@@ -1,12 +1,93 @@
-# React + Vite
+# 🛍️ E-commerce de Remeras
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este proyecto es una Single Page Application (SPA) desarrollada con **React**, que simula un e-commerce de remeras. Utiliza **Firebase Firestore** como base de datos y permite a los usuarios navegar productos, agregarlos al carrito y realizar compras.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Tecnologías usadas
 
-## Expanding the ESLint configuration
+- ⚛️ React
+- 🔥 Firebase (Firestore)
+- 📦 React Router DOM
+- 💡 Context API
+- 💅 Bootstrap (estilado)
+- 💾 LocalStorage / Firestore
+- 🎬 Framer Motion (transiciones)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 📁 Estructura general
+
+src/
+│
+├── components/
+│ ├── ItemListContainer.jsx
+│ ├── ItemList.jsx
+│ ├── Item.jsx
+│ ├── ItemDetailContainer.jsx
+│ ├── CartWidget.jsx
+│ ├── NavBar.jsx
+│ └── CartItem.jsx
+│
+├── context/
+│ └── CartContext.jsx
+│
+├── routes/
+│ ├── Cart.jsx
+│ └── CheckoutForm.jsx
+│
+├── firebase.js
+├── App.jsx
+├── main.jsx
+└── utils/
+
+
+---
+
+## 🔧 Funcionalidades
+
+- ✅ Catálogo dinámico de productos desde Firestore
+- ✅ Navegación por categorías
+- ✅ Detalle individual de producto
+- ✅ Componente `ItemCount` para seleccionar cantidad
+- ✅ Carrito persistente conectado a Firebase
+- ✅ Checkout con formulario de usuario
+- ✅ Registro de orden en Firestore con ID generado
+- ✅ Renderizado condicional (loaders, carrito vacío, etc.)
+
+---
+
+## 🔗 Firebase
+
+- 📦 Productos almacenados en la colección `products`
+- 🧾 Órdenes de compra guardadas en `orders`
+- 📦 Carritos sincronizados por sesión (`carts`)
+
+---
+
+## ▶️ Cómo correr el proyecto
+
+1. Cloná el repo:
+   ```bash
+   git clone https://github.com/tu-usuario/tu-repo.git
+   cd tu-repo
+
+    Instalá dependencias:
+
+npm install
+
+Configurá Firebase:
+
+    Renombrá .env.example a .env.local
+
+    Agregá tus claves de Firebase
+
+Iniciá el proyecto:
+
+    npm run dev
+
+🌐 Deploy
+
+Este proyecto fue deployado en Vercel.
+Podés acceder a la app en:
+📎 https://tureactshop.vercel.app

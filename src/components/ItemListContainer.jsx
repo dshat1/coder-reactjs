@@ -1,49 +1,39 @@
-import React, { useEffect, useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
 
-const mockProducts = [
-  { id: 1, name: "Laptop", category: "electronics" },
-  { id: 2, name: "Camiseta", category: "fashion" },
-  { id: 3, name: "Auriculares", category: "electronics" },
-  { id: 4, name: "Zapatos", category: "fashion" }
-];
 
-const ItemListContainer = ({ greeting }) => {
-  const { categoryId } = useParams();
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { collection, getDocs, query, where } from "firebase/firestore";
+import { db } from "../firebase";
+import ItemList from "./ItemList";
+
+const ItemListContainer = () => {
   const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const { categoryId } = useParams();
 
   useEffect(() => {
-    // Simulación de llamada asíncrona
-    const fetchProducts = new Promise((resolve) => {
-      setTimeout(() => {
-        resolve(mockProducts);
-      }, 1000);
-    });
-
-    fetchProducts.then((data) => {
-      if (categoryId) {
-        setProducts(data.filter(product => product.category === categoryId));
-      } else {
+    const getProducts = async () => {
+      try {
+        const productsCollection = collection(db, "products");
+        const q = categoryId
+          ? query(productsCollection, where("category", "==", categoryId))
+          : productsCollection;
+        const querySnapshot = await getDocs(q);
+        const data = querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
         setProducts(data);
+      } catch (error) {
+        console.error("Error fetching products:", error);
+      } finally {
+        setLoading(false);
       }
-    });
+    };
+
+    getProducts();
   }, [categoryId]);
 
   return (
     <div className="container">
-      <h2>{greeting}</h2>
-      <p>Aquí está el catálogo de productos:</p>
-      {products.length === 0 ? (
-        <p>Cargando productos...</p>
-      ) : (
-        <ul>
-          {products.map(product => (
-            <li key={product.id}>
-              <Link to={`/item/${product.id}`}>{product.name}</Link>
-            </li>
-          ))}
-        </ul>
-      )}
+      {loading ? <p>Cargando productos...</p> : <ItemList products={products} />}
     </div>
   );
 };
